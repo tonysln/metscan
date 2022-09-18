@@ -1,0 +1,183 @@
+<!doctype html>
+<title>metscan Tartu</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<header>
+  <h3 class="title">metscan <span style="color: #15376e; font-weight:500;">Tartu</span></h3>
+</header>
+<main>
+  <section class="content">
+
+
+    <div class="content-grid">
+
+      <div>
+        <h3>{{ data['greeting'] }}</h3>
+        <p>Today is {{ data['date'] }}</p>
+        <p>The time is {{ data['time'] }}</p>
+        <p>Timezone: {{ data['timezone'] }}</p>
+      </div>
+
+      <div></div>
+
+      <div class="current">
+        <p><strong class="title">Current Conditions</strong></p>
+        <p>{{ data['cc']['timestamp'] }}</p>
+        <br>
+        <div class="full-list">
+          <p><strong>Temperature</strong> <span>{{ data['cc']['temp'] }}</span></p>
+          <p><strong>Humidity</strong> <span>{{ data['cc']['humidity'] }}</span></p>
+          <p><strong>Pressure</strong> <span>{{ data['cc']['pressure'] }}</span></p>
+          <p><strong>Wind</strong> <span>{{ data['cc']['wind'] }}</span></p>
+          <p><strong>Precip (5 min)</strong> <span>{{ data['cc']['precip'] }}</span></p>
+          <p><strong>Irradiation flux</strong> <span>{{ data['cc']['irrflux'] }}</span></p>
+        </div>
+        
+        <br>
+        <p>Calculated Values:</p>
+        <div class="full-list">
+          <p><strong>Dew Point</strong> <span>{{ data['calc-dewpoint'] }}</span></p>
+          <p><strong>Wind Chill</strong> <span>{{ data['calc-windchill'] }}</span></p>
+          <p><strong>Heat Index</strong> <span>{{ data['calc-heatindex'] }}</span></p>
+        </div>
+      </div>
+      <div>
+        <p><strong class="title">Tõravere Conditions</strong></p>
+        <p>{{ data['cc2']['timestamp'] }}</p>
+        <br>
+        <div class="full-list">
+          <p><strong>Phenomenon</strong> <span>{{ data['cc2']['phenomenon'] }}</span></p>
+          <p><strong>Temperature</strong> <span>{{ data['cc2']['temp'] }}</span></p>
+          <p><strong>Dew Point</strong> <span>{{ data['cc2']['dewpoint'] }}</span></p>
+          <p><strong>Humidity</strong> <span>{{ data['cc2']['humidity'] }}</span></p>
+          <p><strong>Pressure</strong> <span>{{ data['cc2']['pressure'] }}</span></p>
+          <p><strong>Gusts</strong> <span>{{ data['cc2']['gusts'] }}</span></p>
+          <p><strong>Precip (1 h)</strong> <span>{{ data['cc2']['precip'] }}</span></p>
+          <p><strong>Visibility</strong> <span>{{ data['cc2']['visibility'] }}</span></p>
+        </div>
+
+        <br><br>
+        <small style="float: right; text-align: right;"><em>Data Sources:</em> <em>UT Institute of Physics</em>,<br><em>Estonian Weather Service</em></small>
+      </div>
+
+      <div></div>
+
+      <div>
+        <p><strong class="title">Almanac</strong></p>
+        <div class="full-list">
+          <p><strong>Sunrise</strong> <span>{{ data['sunrise'] }}</span></p>
+          <p><strong>Sunset</strong> <span>{{ data['sunset'] }}</span></p>
+          <p><strong>Next Moon</strong> <span>{{ data['next-moon'] }}</span></p>
+        </div>
+        <br>
+      </div>
+
+    </div>
+
+    <br>
+    <div class="full-section">
+      <p style="color: red;">NB! Fix highcharts thing</p>
+      <p style="color: red;">Include music thingy eg https://musicbrainz.org/release/9866f7d8-d31e-4e4e-8805-7ea152ab3d81</p>
+      <p><strong class="title">GDPS (GEM-GLB) Forecast for Tartu, Estonia</strong></p>
+      <p>Model Date: Tue 16 Nov 06:00</p>
+      <p>Lat: 58.37879, Lon: 26.72522</p>
+      <br>
+      <div id="forecast-1" style="width:100%; height:196px;"></div>
+      <br>
+      <div id="forecast-2" style="width:100%; height:196px;"></div>
+      <br>
+      <div id="forecast-3" style="width:100%; height:196px;"></div>
+    </div> 
+
+  <br>
+    <div class="content-grid-2">
+      <div class="forecast-text">
+        <p><strong class="title">Upcoming Forecast</strong></p>
+        <p>Tue 16. Nov 12:00</p>
+        <br>
+        <p><strong>Tonight</strong></p>
+        <p>---</p>
+
+        <br>
+        <p><strong>Tomorrow Day</strong></p>
+        <p>---</p>
+
+      </div>
+      <div class="warnings-text">
+        <p><strong class="title">Issued Warnings</strong></p>
+        <p>Tue 16. Nov 12:00</p>
+        <br>
+        <p><strong>---</strong></p>
+        <p>---</p>
+      </div>
+    </div>
+
+    <br><br>
+
+    <div class="avia-info">
+        <p><strong class="title">Aviation Weather Information</strong></p>
+        <p>Tue 16. Nov 23:55 UTC</p>
+        <br>
+        <p><strong>TAF(FTEO31)</strong></p>
+        <pre>
+FTEO31 EETN 162300 
+TAF EETN 162330Z 1700/1724 19010KT 4000 DZ BR BKN005 OVC020
+     TEMPO 1700/1712 0500 DZ FG OVC002 1712/1718 6000 BKN010 TEMPO
+     1721/1724 SHRA BKN007 SCT015CB=
+        </pre>
+
+        <br>
+        <p><strong>TAF(FTEO33)</strong></p>
+        <pre>
+FTEO33 EEEI 162330 
+TAF EEEI 162330Z 1700/1724 20010KT 9000 -DZ SCT006 OVC020 TEMPO
+     1618/1702 5000 RADZ OVC005 TEMPO 1702/1710 3000 DZ BR OVC002
+     BECMG 1712/1714 5000 OVC005= 
+        </pre>
+
+        <br>
+        <p><strong>METAR/SPECI</strong></p>
+        <pre>
+METAR EETN 162350Z 19005KT 5000 -DZ BR FEW004 BKN007 OVC014 05/04
+Q1018=
+        </pre>
+        <pre>
+METAR EEEI 162350Z AUTO 20007KT 9999 -RA SCT016/// OVC020/// 05/04
+Q1019=
+        </pre>
+        <pre>
+METAR EETU 162350Z AUTO 20008KT 7000 SCT007/// BKN017/// OVC028///
+02/01 Q1021 RESHUP=
+        </pre>
+        <pre>
+METAR EEPU 162350Z NIL=
+        </pre>
+        <pre>
+METAR EEKE 162350Z AUTO 21010KT 180V250 3100NDV DZ BR BKN005 OVC012
+05/05 Q1019=
+        </pre>
+        <pre>
+METAR EEKA 162350Z NIL=
+        </pre>
+
+        <small style="float: right; text-align: right;"><em>Data Source:</em> <em>Estonian Weather Service</em></small>
+        <br>
+      </div>
+
+      <br>
+
+      <div class="avia-info">
+        <p><strong class="title">Marine Weather Reports</strong></p>
+        <p>Tue 16. Nov 23:55 UTC</p>
+        <br>
+        <p>---</p>
+      </div>
+
+  </section>
+</main>
+<footer>
+  <br><br>
+</footer>
+
+<script src="{{ url_for('static', filename='highcharts/code/highcharts.js') }}"></script>
+<script src="{{ url_for('static', filename='forecast/charts.js') }}"></script>
